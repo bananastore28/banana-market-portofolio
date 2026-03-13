@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Persona</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="background-grid"></div>
+    <div class="blob-bg"></div>
+
+    <nav class="navbar">
+        <a href="#beranda" class="logo">MARKETBANANA<span></span></a>
+        <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- SEKSI BERANDA -->
+        <section id="beranda" class="section glass-panel slide-in">
+            <div class="content">
+                <h1 class="glitch-text" data-text="Jelajahi portofolio saya">Jelajahi portofolio saya</h1>
+                <p class="subtitle">mengenal keahlian saya dan menghubungi contact saya.</p>
+                <div class="cta-buttons">
+                    <a href="#tentang" class="btn btn-primary">Kenali Saya</a>
+                    <a href="#kontak" class="btn btn-secondary">Hubungi</a>
+                </div>
+            </div>
+            <div class="profile-container">
+                <!-- Gambar ini akan dibuat transparan/blend dengan bg -->
+                <img src="profil diri.png" alt="Profile" class="profile-img floating">
+                <div class="neon-ring"></div>
+            </div>
+        </section>
+
+        <!-- SEKSI TENTANG (EDITABLE) -->
+        <section id="tentang" class="section glass-panel slide-right">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="editable-wrapper">
+                <div class="edit-controls">
+                    <button id="editBtn" class="btn btn-small">Edit Deskripsi</button>
+                    <button id="saveBtn" class="btn btn-small btn-primary hidden">Simpan</button>
+                    <span id="saveIndicator" class="indicator hidden">Tersimpan!</span>
+                </div>
+                <div id="aboutText" class="about-text" contenteditable="false">
+                    <p>Saya adalah seorang desainer dan pengembang web yang sangat menyukai estetika futuristik. Saya
+                        percaya bahwa tampilan visual yang kuat dapat memberikan pengalaman emosional yang mendalam bagi
+                        pengguna. Dengan sentuhan warna neon dan animasi yang mulus, saya merancang antarmuka yang tidak
+                        hanya fungsional tetapi juga memukau.</p>
+                    <p>Klik tombol 'Edit Deskripsi' di atas untuk mengubah teks ini. Data akan disimpan secara lokal di
+                        browser Anda.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKSI KONTAK -->
+        <section id="kontak" class="section glass-panel fade-up">
+            <h2 class="section-title">Terhubung</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Temukan saya di media sosial dan mari berkarya bersama.
+            </p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/moonofstarr/" target="_blank" class="social-card" style="--clr: #ff003c;">
+                    <div class="icon">In</div>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://wa.me/628972768666" target="_blank" class="social-card" style="--clr: #25D366;">
+                    <div class="icon">Wa</div>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
