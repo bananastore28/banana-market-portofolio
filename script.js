@@ -257,11 +257,33 @@ const bgMusic = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
 let isPlaying = false;
 
-if (bgMusic && musicToggle) {
-    // Start Audio at 40% volume for elegance
+function attemptAutoPlay() {
+    if (!bgMusic) return;
     bgMusic.volume = 0.4;
+    bgMusic.play().then(() => {
+        isPlaying = true;
+        if(musicToggle) musicToggle.classList.add('playing');
+    }).catch(e => {
+        // Autoplay diblokir oleh browser. Tunggu interaksi pertama pengguna (klik dimana saja)
+        console.log('Autoplay ditahan browser. Menunggu klik pertama dari pengunjung...');
+        document.body.addEventListener('click', function unlockAudio() {
+            if(!isPlaying) {
+                bgMusic.play();
+                isPlaying = true;
+                if(musicToggle) musicToggle.classList.add('playing');
+            }
+            // Hapus pendengar event setelah lagu menyala
+            document.body.removeEventListener('click', unlockAudio);
+        }, { once: true });
+    });
+}
+
+if (bgMusic && musicToggle) {
+    // Coba mainkan lagu langsung saat halaman dibuka
+    attemptAutoPlay();
     
-    musicToggle.addEventListener('click', () => {
+    musicToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Mencegah trigger klik pada body
         if (isPlaying) {
             bgMusic.pause();
             musicToggle.classList.remove('playing');
